@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Kid = exports.User = void 0;
 // function
 function add(first, second) {
     return first + second;
@@ -37,14 +38,17 @@ class User {
         return currentEnergy - (kms * percentage);
     }
 }
+exports.User = User;
 class Kid extends User {
+    // run is overridden in this class
+    // kid spend less energy than normal user
     run(kms) {
-        const percentage = 0.55;
+        const percentage = 0.05;
         this.energy = this.reduceEnergy(this.energy, kms, percentage);
     }
 }
-User.create("Mirdan");
-exports.default = { User, Kid };
+exports.Kid = Kid;
+User.create("Mirdan"); // static method
 const usr = new User("1", "Mamazo");
 console.log(usr.getFirstName());
 console.log(usr.getId());
@@ -53,7 +57,7 @@ console.log("Energy: ", usr.getEnergy());
 const kid = new Kid("123", "Ikyuu San");
 console.log(kid.getFirstName());
 console.log(kid.getId());
-kid.run(100);
+kid.run(10);
 console.log("Energy: ", kid.getEnergy());
 usr.getId();
 usr.getFirstName();
@@ -96,9 +100,11 @@ class Mirdan {
         console.log(this.fullname);
     }
 }
+// can run methods of objects implementing interface Kura and Printer
 function runAllKura(kura_kuras) {
     for (const kura of kura_kuras) {
         kura.move(10);
+        kura.print();
     }
 }
 runAllKura([new Mirdan("1", "Mirdan S"), new KuraNormal("132", "Kura Normal"), new KuraTerbang("5423", "Kura Terbang")]);
