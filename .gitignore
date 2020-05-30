@@ -1,0 +1,9 @@
+
+# Created by https://www.gitignore.io/api/typescript
+# Edit at https://www.gitignore.io/?templates=typescript
+
+#!! ERROR: typescript is undefined. Use list command to see defined gitignore types !!#
+
+# End of https://www.gitignore.io/api/typescript
+
+node_modules
